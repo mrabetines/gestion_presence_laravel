@@ -15,4 +15,10 @@
 
     <!-- Import the entire cyclomatic complexity rule -->
     <rule ref="rulesets/codesize.xml/CyclomaticComplexity" />
+     <filter>
+	  <blacklist>
+	    <directory>app/Exceptions</directory>
+        <directory>app/Console</directory>
+	  </blacklist>
+	</filter>
 </ruleset>
