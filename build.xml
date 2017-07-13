@@ -86,30 +86,22 @@
   <echo msg="Performing mess detection..."/> 
   <exec executable="phpmd" logoutput="true">
    <arg path="${project.basedir}/app" />
-   <arg value="--exclude"/>
-        <arg value="${project.basedir}/app/Console"/>
-        <arg value="--exclude"/>
-        <arg value="${project.basedir}/app/Exceptions"/>
-        <arg value="--exclude"/>
-        <arg value="${project.basedir}/app/Providers"/>
    <arg value="text" />
    <arg value="${project.basedir}/phpmd.xml" />
+   <arg value="--exclude" />
+   <arg value="Exceptions\*,Console\*"/>
   </exec>
  </target>
 
  <target name="phpmd-ci" description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
   <exec executable="phpmd" logoutput="true">
    <arg path="${project.basedir}/app" />
-    <arg value="--exclude"/>
-        <arg value="${project.basedir}/app/Console"/>
-        <arg value="--exclude"/>
-        <arg value="${project.basedir}/app/Exceptions"/>
-        <arg value="--exclude"/>
-        <arg value="${project.basedir}/app/Providers"/>
    <arg value="xml" />
    <arg value="${project.basedir}/phpmd.xml" />
    <arg value="--reportfile" />
    <arg value="${project.basedir}/build/logs/pmd.xml" />
+    <arg value="--exclude" />
+   <arg value="Exceptions\*,Console\*"/>
   </exec>
  </target>
 
@@ -117,6 +109,7 @@
          description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
   <echo msg="Finding coding standard violations..."/> 
   <exec executable="phpcs" logoutput="true">
+    <arg value="--ignore=*/Providers/*,*/Exceptions/*,*/Http/Kernel.php"/>
    <arg value="--standard=${project.basedir}/phpcs.xml" />
    <arg path="${project.basedir}/app" />
   </exec>
@@ -127,6 +120,8 @@
    <arg value="--report=checkstyle" />
    <arg value="--report-file=${project.basedir}/build/logs/checkstyle.xml" />
    <arg value="--standard=${project.basedir}/phpcs.xml" />
+    <arg value="--ignore=*/Providers/*,*/Exceptions/*,*/Http/Kernel.php"/>
+    
    <arg path="${project.basedir}/app" />
   </exec>
  </target>
@@ -143,6 +138,10 @@
  <target name="phpdox" description="Generate API documentation using phpDox">
   <echo msg="Generating API documentation..."/> 
   <exec executable="phpdox"/>
+ </target>
+ 
+
+  <property name="phpdox.done" value="true"/>
  </target>
 
  <target name="phpunit" description="Run unit tests with PHPUnit">

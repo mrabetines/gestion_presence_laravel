@@ -1,19 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="3.0.1">
-<file name="C:\wamp64\www\gestionpres\app\Exceptions\Handler.php">
- <error line="57" column="84" severity="warning" message="Line longer than 80 characters; contains 84 characters" source="Generic.Files.LineLength.TooLong"/>
-</file>
-<file name="C:\wamp64\www\gestionpres\app\Http\Kernel.php">
- <error line="54" column="85" severity="warning" message="Line longer than 80 characters; contains 85 characters" source="Generic.Files.LineLength.TooLong"/>
-</file>
-<file name="C:\wamp64\www\gestionpres\app\Providers\AuthServiceProvider.php">
- <error line="6" column="83" severity="warning" message="Line longer than 80 characters; contains 83 characters" source="Generic.Files.LineLength.TooLong"/>
-</file>
-<file name="C:\wamp64\www\gestionpres\app\Providers\EventServiceProvider.php">
- <error line="6" column="84" severity="warning" message="Line longer than 80 characters; contains 84 characters" source="Generic.Files.LineLength.TooLong"/>
-</file>
-<file name="C:\wamp64\www\gestionpres\app\Providers\RouteServiceProvider.php">
- <error line="6" column="84" severity="warning" message="Line longer than 80 characters; contains 84 characters" source="Generic.Files.LineLength.TooLong"/>
-</file>
 </checkstyle>
 

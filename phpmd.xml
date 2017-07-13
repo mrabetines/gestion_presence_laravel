@@ -9,16 +9,12 @@
     <description>
         My custom rule set that checks my code...
     </description>
-
+    <exclude-pattern type="relative">^/Console/*</exclude-pattern>
+    <exclude-pattern type="relative">^/Exceptions/*</exclude-pattern>
     <!-- Import the entire unused code rule set -->
     <rule ref="rulesets/unusedcode.xml" />
 
     <!-- Import the entire cyclomatic complexity rule -->
     <rule ref="rulesets/codesize.xml/CyclomaticComplexity" />
-     <filter>
-	  <blacklist>
-	    <directory>app/Exceptions</directory>
-        <directory>app/Console</directory>
-	  </blacklist>
-	</filter>
+
 </ruleset>
