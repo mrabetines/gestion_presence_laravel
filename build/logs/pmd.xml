@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pmd version="@project.version@" timestamp="2017-07-13T13:22:01+00:00">
+  <file name="C:\wamp64\www\gestionpres\app\Console\Kernel.php">
+    <violation beginline="25" endline="25" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$schedule'.
+    </violation>
+  </file>
+  <file name="C:\wamp64\www\gestionpres\app\Exceptions\Handler.php">
+    <violation beginline="57" endline="57" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$exception'.
+    </violation>
+  </file>
+</pmd>

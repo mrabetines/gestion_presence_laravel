@@ -64,7 +64,7 @@
 
  <target name="phploc" description="Measure project size using PHPLOC">
   <echo msg="Measuring project size..."/> 
-  <exec executable="${project.basedir}/vendor/bin/phploc" logoutput="true">
+  <exec executable="phploc" logoutput="true">
    <arg value="--log-csv" />
    <arg value="${project.basedir}/build/logs/phploc.csv" />
    <arg path="${project.basedir}/app" />
@@ -73,7 +73,7 @@
 
  <target name="pdepend" description="Calculate software metrics using PHP_Depend">
   <echo msg="Calculating software metrics..."/> 
-  <exec executable="${project.basedir}/vendor/bin/pdepend" logoutput="true">
+  <exec executable="pdepend" logoutput="true">
    <arg value="--jdepend-xml=${project.basedir}/build/logs/jdepend.xml" />
    <arg value="--jdepend-chart=${project.basedir}/build/pdepend/dependencies.svg" />
    <arg value="--overview-pyramid=${project.basedir}/build/pdepend/overview-pyramid.svg" />
@@ -84,7 +84,7 @@
  <target name="phpmd"
          description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
   <echo msg="Performing mess detection..."/> 
-  <exec executable="${project.basedir}/vendor/bin/phpmd" logoutput="true">
+  <exec executable="phpmd" logoutput="true">
    <arg path="${project.basedir}/app" />
    <arg value="text" />
    <arg value="${project.basedir}/phpmd.xml" />
@@ -92,7 +92,7 @@
  </target>
 
  <target name="phpmd-ci" description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
-  <exec executable="${project.basedir}/vendor/bin/phpmd" logoutput="true">
+  <exec executable="phpmd" logoutput="true">
    <arg path="${project.basedir}/app" />
    <arg value="xml" />
    <arg value="${project.basedir}/phpmd.xml" />
@@ -104,14 +104,14 @@
  <target name="phpcs"
          description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
   <echo msg="Finding coding standard violations..."/> 
-  <exec executable="${project.basedir}/vendor/bin/phpcs" logoutput="true">
+  <exec executable="phpcs" logoutput="true">
    <arg value="--standard=${project.basedir}/phpcs.xml" />
    <arg path="${project.basedir}/app" />
   </exec>
  </target>
 
  <target name="phpcs-ci" description="Find coding standard violations using PHP_CodeSniffer creating a log file for the continuous integration server">
-  <exec executable="${project.basedir}/vendor/bin/phpcs" output="/dev/null">
+  <exec executable="phpcs" output="/dev/null">
    <arg value="--report=checkstyle" />
    <arg value="--report-file=${project.basedir}/build/logs/checkstyle.xml" />
    <arg value="--standard=${project.basedir}/phpcs.xml" />
@@ -121,7 +121,7 @@
 
  <target name="phpcpd" description="Find duplicate code using PHPCPD">
   <echo msg="Finding duplicate code..."/> 
-  <exec executable="${project.basedir}/vendor/bin/phpcpd">
+  <exec executable="${phpcpd">
    <arg value="--log-pmd" />
    <arg value="${project.basedir}/build/logs/pmd-cpd.xml" />
    <arg path="${project.basedir}/app" />
@@ -130,7 +130,7 @@
 
  <target name="phpdox" description="Generate API documentation using phpDox">
   <echo msg="Generating API documentation..."/> 
-  <exec executable="${project.basedir}/vendor/bin/phpdox"/>
+  <exec executable="phpdox"/>
  </target>
 
  <target name="phpunit" description="Run unit tests with PHPUnit">
