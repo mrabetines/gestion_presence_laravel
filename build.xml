@@ -121,7 +121,7 @@
 
  <target name="phpcpd" description="Find duplicate code using PHPCPD">
   <echo msg="Finding duplicate code..."/> 
-  <exec executable="${phpcpd">
+  <exec executable="phpcpd">
    <arg value="--log-pmd" />
    <arg value="${project.basedir}/build/logs/pmd-cpd.xml" />
    <arg path="${project.basedir}/app" />
@@ -135,12 +135,12 @@
 
  <target name="phpunit" description="Run unit tests with PHPUnit">
   <echo msg="Running PHPUnit tests..."/> 
-  <exec executable="${project.basedir}/vendor/bin/phpunit" logoutput="true" checkreturn="1"/>
+  <exec executable="phpunit" logoutput="true" checkreturn="1"/>
  </target>
 
  <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
   <echo msg="Creating Code Browser output..."/> 
-  <exec executable="${project.basedir}/vendor/bin/phpcb">
+  <exec executable="phpcb">
    <arg value="--log" />
    <arg path="${project.basedir}/build/logs" />
    <arg value="--source" />
