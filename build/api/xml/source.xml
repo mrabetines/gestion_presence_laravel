@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<source xmlns="http://xml.phpdox.net/src">
+  <dir name="C:/wamp64/www/gestionpres/app">
+    <dir name="Console">
+      <file name="Kernel.php" size="819" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="6ce421c8364c4f26e1c384386208b08729b58224" xml="tokens/Console/Kernel.php.xml"/>
+    </dir>
+    <dir name="Exceptions">
+      <file name="Handler.php" size="1877" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="2ebd4e6ea3f0ddb05b41c6dfa331eb4deec37362" xml="tokens/Exceptions/Handler.php.xml"/>
+    </dir>
+    <dir name="Http">
+      <dir name="Controllers">
+        <dir name="Auth">
+          <file name="ForgotPasswordController.php" size="834" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="6cfb39d8c4a13296df0b8a02c15db3df24d1a9d8" xml="tokens/Http/Controllers/Auth/ForgotPasswordController.php.xml"/>
+          <file name="LoginController.php" size="943" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="19554eac6a3d88eb8f1444e5ba75ff66a626202f" xml="tokens/Http/Controllers/Auth/LoginController.php.xml"/>
+          <file name="RegisterController.php" size="1812" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="672016818fe986ed46a5a8d2c9bc629da8b4d69d" xml="tokens/Http/Controllers/Auth/RegisterController.php.xml"/>
+          <file name="ResetPasswordController.php" size="952" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="92fc4d9265b3294778e91cd5c42eaa97a3a0e65d" xml="tokens/Http/Controllers/Auth/ResetPasswordController.php.xml"/>
+        </dir>
+        <file name="Controller.php" size="361" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="080a728cc40011ab4c4a68d88e221ed8a577d562" xml="tokens/Http/Controllers/Controller.php.xml"/>
+      </dir>
+      <file name="Kernel.php" size="1983" time="2017-07-11T13:00:34+00:00" unixtime="1499778034" sha1="81ba52479cfdccc2609b86c3be0e8e71de084a17" xml="tokens/Http/Kernel.php.xml"/>
+      <dir name="Middleware">
+        <file name="EncryptCookies.php" size="300" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="ccf0bae02c6e4528b6318408edf1dabe123415e8" xml="tokens/Http/Middleware/EncryptCookies.php.xml"/>
+        <file name="RedirectIfAuthenticated.php" size="523" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="99e1fc9d7e220277912272b3998b2410742308d7" xml="tokens/Http/Middleware/RedirectIfAuthenticated.php.xml"/>
+        <file name="TrimStrings.php" size="342" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="b3b534966ce4740487173be3aa27f982beceebfb" xml="tokens/Http/Middleware/TrimStrings.php.xml"/>
+        <file name="VerifyCsrfToken.php" size="311" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="108f0b2d18da545273d4f86acda5b32c97dfc82b" xml="tokens/Http/Middleware/VerifyCsrfToken.php.xml"/>
+      </dir>
+    </dir>
+    <dir name="Providers">
+      <file name="AppServiceProvider.php" size="403" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="64e149d26913bfed9afbf799e911246df447c2a2" xml="tokens/Providers/AppServiceProvider.php.xml"/>
+      <file name="AuthServiceProvider.php" size="575" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="74d85939b3f1a304613420f5be681e10e8de2465" xml="tokens/Providers/AuthServiceProvider.php.xml"/>
+      <file name="BroadcastServiceProvider.php" size="380" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="b10849da9343ef9ce146dd3de8ea0527d4c8fb86" xml="tokens/Providers/BroadcastServiceProvider.php.xml"/>
+      <file name="EventServiceProvider.php" size="596" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="94b2d414825acea8b99de301e864a232bbecfe96" xml="tokens/Providers/EventServiceProvider.php.xml"/>
+      <file name="RouteServiceProvider.php" size="1529" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="f63ca296b61e5db05dfb09cd363884a0673cd06b" xml="tokens/Providers/RouteServiceProvider.php.xml"/>
+    </dir>
+    <file name="User.php" size="511" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="d642f5b01266443c4a05cfeadf8b6925ae30b1a6" xml="tokens/User.php.xml"/>
+  </dir>
+</source>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Http\Middleware\EncryptCookies" namespace="App\Http\Middleware" name="EncryptCookies" abstract="false" final="false" start="7" end="17">
+  <file path="C:/wamp64/www/gestionpres/app/Http/Middleware" file="EncryptCookies.php" realpath="C:/wamp64/www/gestionpres/app/Http/Middleware/EncryptCookies.php" size="300" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="ccf0bae02c6e4528b6318408edf1dabe123415e8" relative="Http/Middleware/EncryptCookies.php"/>
+  <extends full="Illuminate\Cookie\Middleware\EncryptCookies" namespace="Illuminate\Cookie\Middleware" name="EncryptCookies" unresolved="true"/>
+  <member name="except" default="" type="array" visibility="protected" static="false" line="14">
+    <docblock>
+      <description compact="The names of the cookies that should not be encrypted."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+</class>

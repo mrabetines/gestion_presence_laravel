@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\User" namespace="App" name="User" abstract="false" final="false" start="8" end="29">
+  <file path="C:/wamp64/www/gestionpres/app" file="User.php" realpath="C:/wamp64/www/gestionpres/app/User.php" size="511" time="2017-07-03T23:34:36+00:00" unixtime="1499124876" sha1="d642f5b01266443c4a05cfeadf8b6925ae30b1a6" relative="User.php"/>
+  <extends full="Illuminate\Foundation\Auth\User" namespace="Illuminate\Foundation\Auth" name="User" unresolved="true"/>
+  <uses full="Illuminate\Notifications\Notifiable" namespace="Illuminate\Notifications" name="Notifiable" start="10" end="10" unresolved="true"/>
+  <member name="fillable" default="" type="array" visibility="protected" static="false" line="17">
+    <docblock>
+      <description compact="The attributes that are mass assignable."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="hidden" default="" type="array" visibility="protected" static="false" line="26">
+    <docblock>
+      <description compact="The attributes that should be hidden for arrays."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+</class>
