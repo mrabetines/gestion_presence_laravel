@@ -94,6 +94,12 @@
  <target name="phpmd-ci" description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
   <exec executable="phpmd" logoutput="true">
    <arg path="${project.basedir}/app" />
+    <arg value="--exclude"/>
+        <arg value="${project.basedir}/app/Console"/>
+        <arg value="--exclude"/>
+        <arg value="${project.basedir}/app/Exceptions"/>
+        <arg value="--exclude"/>
+        <arg value="${project.basedir}/app/Providers"/>
    <arg value="xml" />
    <arg value="${project.basedir}/phpmd.xml" />
    <arg value="--reportfile" />
