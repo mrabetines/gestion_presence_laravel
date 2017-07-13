@@ -67,6 +67,8 @@
   <exec executable="phploc" logoutput="true">
    <arg value="--log-csv" />
    <arg value="${project.basedir}/build/logs/phploc.csv" />
+   <arg value="--log-xml" />
+   <arg path="${project.basedir}/build/logs/phploc.xml" />
    <arg path="${project.basedir}/app" />
   </exec>
  </target>
