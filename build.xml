@@ -135,7 +135,10 @@
 
  <target name="phpunit" description="Run unit tests with PHPUnit">
   <echo msg="Running PHPUnit tests..."/> 
-  <exec executable="phpunit" logoutput="true" checkreturn="1"/>
+  <exec executable="phpunit" logoutput="true" checkreturn="1">
+  <arg value="-c" />
+  <arg value="${project.basedir}/phpunit.xml" />
+  </exec>
  </target>
 
  <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
