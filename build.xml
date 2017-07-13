@@ -86,6 +86,12 @@
   <echo msg="Performing mess detection..."/> 
   <exec executable="phpmd" logoutput="true">
    <arg path="${project.basedir}/app" />
+   <arg value="--exclude"/>
+        <arg value="${project.basedir}/app/Console"/>
+        <arg value="--exclude"/>
+        <arg value="${project.basedir}/app/Exceptions"/>
+        <arg value="--exclude"/>
+        <arg value="${project.basedir}/app/Providers"/>
    <arg value="text" />
    <arg value="${project.basedir}/phpmd.xml" />
   </exec>
