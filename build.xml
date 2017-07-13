@@ -139,14 +139,18 @@
   <echo msg="Generating API documentation..."/> 
   <exec executable="phpdox"/>
  </target>
- 
+ <!--<target name="phpdox"
+         unless="phpdox.done"
+
+         description="Generate project documentation using phpDox">
+  <exec executable="phpdox" dir="${project.basedir}" taskname="phpdox"/>
 
   <property name="phpdox.done" value="true"/>
- </target>
+ </target>-->
 
  <target name="phpunit" description="Run unit tests with PHPUnit">
   <echo msg="Running PHPUnit tests..."/> 
-  <exec executable="phpunit" logoutput="true" checkreturn="1">
+  <exec executable="${project.basedir}/vendor/bin/phpunit" logoutput="true" checkreturn="1">
   <arg value="-c" />
   <arg value="${project.basedir}/phpunit.xml" />
   </exec>

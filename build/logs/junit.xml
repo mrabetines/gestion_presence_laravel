@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="3" assertions="3" failures="0" errors="0" time="0.350203">
-    <testsuite name="Feature Tests" tests="2" assertions="2" failures="0" errors="0" time="0.324627">
-      <testsuite name="Tests\Feature\ExampleTest" file="C:\wamp64\www\gestionpres\tests\Feature\ExampleTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.296445">
-        <testcase name="testBasicTest" class="Tests\Feature\ExampleTest" file="C:\wamp64\www\gestionpres\tests\Feature\ExampleTest.php" line="17" assertions="1" time="0.296445"/>
+  <testsuite name="" tests="3" assertions="3" failures="0" errors="0" time="0.374726">
+    <testsuite name="Feature Tests" tests="2" assertions="2" failures="0" errors="0" time="0.351277">
+      <testsuite name="Tests\Feature\ExampleTest" file="C:\wamp64\www\gestionpres\tests\Feature\ExampleTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.324600">
+        <testcase name="testBasicTest" class="Tests\Feature\ExampleTest" file="C:\wamp64\www\gestionpres\tests\Feature\ExampleTest.php" line="17" assertions="1" time="0.324600"/>
       </testsuite>
-      <testsuite name="Tests\Feature\UserTest" file="C:\wamp64\www\gestionpres\tests\Feature\UserTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.028182">
-        <testcase name="testExample" class="Tests\Feature\UserTest" file="C:\wamp64\www\gestionpres\tests\Feature\UserTest.php" line="17" assertions="1" time="0.028182"/>
+      <testsuite name="Tests\Feature\UserTest" file="C:\wamp64\www\gestionpres\tests\Feature\UserTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.026677">
+        <testcase name="testExample" class="Tests\Feature\UserTest" file="C:\wamp64\www\gestionpres\tests\Feature\UserTest.php" line="17" assertions="1" time="0.026677"/>
       </testsuite>
     </testsuite>
-    <testsuite name="Unit Tests" tests="1" assertions="1" failures="0" errors="0" time="0.025576">
-      <testsuite name="Tests\Unit\ExampleTest" file="C:\wamp64\www\gestionpres\tests\Unit\ExampleTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.025576">
-        <testcase name="testBasicTest" class="Tests\Unit\ExampleTest" file="C:\wamp64\www\gestionpres\tests\Unit\ExampleTest.php" line="16" assertions="1" time="0.025576"/>
+    <testsuite name="Unit Tests" tests="1" assertions="1" failures="0" errors="0" time="0.023449">
+      <testsuite name="Tests\Unit\ExampleTest" file="C:\wamp64\www\gestionpres\tests\Unit\ExampleTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.023449">
+        <testcase name="testBasicTest" class="Tests\Unit\ExampleTest" file="C:\wamp64\www\gestionpres\tests\Unit\ExampleTest.php" line="16" assertions="1" time="0.023449"/>
       </testsuite>
     </testsuite>
   </testsuite>
