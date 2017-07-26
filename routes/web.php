@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
-Route::get('/api/v1/helloworld',function (){
-    return Response::json(array('error' => false,'answer' => 'Hello World','status_code'=> 200));
+});*/
+Route::group(array('prefix' => 'api/v1'), function()
+{
+  Route::get('/beacons', 'MyController@getListBeacons');
+  Route::post('/presence', 'MyController@markPresence');
+  Route::post('/getdata', 'MyController@pushNotif');
 });

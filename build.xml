@@ -52,7 +52,7 @@
     <include name="**/*.php" />
    </fileset>
 
-   <fileset dir="${project.basedir}/app/models">
+   <fileset dir="${project.basedir}/app/Models">
     <include name="**/*.php" />
    </fileset>
 
