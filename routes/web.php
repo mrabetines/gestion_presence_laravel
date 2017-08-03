@@ -10,13 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
 Route::group(array('prefix' => 'api/v1'), function()
 {
-  Route::get('/beacons', 'MyController@getListBeacons');
-  Route::post('/presence', 'MyController@markPresence');
-  Route::post('/getdata', 'MyController@pushNotif');
+  Route::get('/beacons', 'BeaconController@getListBeacons');
+  Route::post('/presence', 'PresenceController@markPresence');
+  Route::post('/student', 'EtudiantController@login');
 });

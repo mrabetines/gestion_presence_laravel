@@ -38,5 +38,6 @@ class MigrationBanqueEnseignant extends Migration
             $table->dropForeign('Banque_Enseignant_id_Banque_foreign');
 
         });
+        Schema::drop('Banque_Enseignant');
     }
 }

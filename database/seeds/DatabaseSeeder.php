@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        /* DB::table('Niveau')->insert([
+         DB::table('Niveau')->insert([
             'nom' => 'premier niveau',
         ]);
          DB::table('Etudiant')->insert([
@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             'qr_code' => '0000000117',
             'active' => true,
             'carte_Etudiant' =>'1300282', 
-        ]);*/
+            'password' => 'ines',
+        ]);
         DB::table('Etudiant')->insert([
             'nom' => 'ayari',
             'prenom' => 'sameh',
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
             'qr_code' => '0000000118',
             'active' => true,
             'carte_Etudiant' => '1300283', 
+            'password' => 'sameh',
         ]);
         DB::table('Session')->insert([
             'nom' => 'session',

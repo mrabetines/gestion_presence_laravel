@@ -34,5 +34,7 @@ class MigrationService extends Migration
             $table->dropForeign('Service_id_Hopital_foreign');
         });
 
+        Schema::drop('Service');
+
     }
 }

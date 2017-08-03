@@ -30,8 +30,8 @@ class MigrationFile extends Migration
      */
     public function down()
     {
-        Schema::table('gFile', function (Blueprint $table) {
-            $table->dropForeign('File_id_File_foreign');
+        Schema::table('File', function (Blueprint $table) {
+            $table->dropForeign('File_id_Banque_foreign');
         });
         Schema::drop('File');
     }

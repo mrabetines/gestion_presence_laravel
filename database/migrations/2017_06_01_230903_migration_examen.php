@@ -19,11 +19,11 @@ class MigrationExamen extends Migration
             $table->integer('max_Places');
             $table->integer('nbre_Places');
 
-            $table->integer('id_Session')->unsigned();;
+            $table->integer('id_Session')->unsigned();
             $table->foreign('id_Session')->references('id_Session')->on('Session');
 
 
-            $table->integer('id_Enseignant')->unsigned();;
+            $table->integer('id_Enseignant')->unsigned()->nullable();
             $table->foreign('id_Enseignant')->references('id_Enseignant')->on('Enseignant');
 
         });
@@ -38,7 +38,7 @@ class MigrationExamen extends Migration
     {
         Schema::table('Examen', function (Blueprint $table) {
             $table->dropForeign('Examen_id_Session_foreign');
-            $table->dropForeign('Examen_id_Stage_foreign');
+            $table->dropForeign('Examen_id_Enseignant_foreign');
         });
         Schema::drop('Examen');
     }

@@ -23,6 +23,8 @@ class MigrationEtudiant extends Migration
             $table->boolean('active')->default(false);
             $table->string('confirmation_code')->nullable();
             $table->string('qr_code', 100);
+            $table->string('password', 100);
+            $table->string('token',200)->nullable();
 
             $table->integer('id_Niveau')->unsigned();
             $table->foreign('id_Niveau')->references('id_Niveau')->on('Niveau');
