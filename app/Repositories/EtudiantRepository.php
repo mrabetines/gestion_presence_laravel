@@ -9,6 +9,10 @@ class EtudiantRepository implements IEtudiantRepository
     {
         return Etudiant::where(['email'=>$email,'password' =>$pwd])->first();
     }
+    public function getByQrCode($qr_code)
+    {
+        return Etudiant::where(['qr_code'=>$qr_code])->first();
+    }
     public function getOne($id)
     {
         return Etudiant::find($id);

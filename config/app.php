@@ -176,7 +176,13 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        //fcm provider
         LaravelFCM\FCMServiceProvider::class,
+        //cors provider
+        Barryvdh\Cors\ServiceProvider::class,
+        //jwt provider
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class
+        
 
     ],
 
@@ -227,6 +233,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'FCM'      => LaravelFCM\Facades\FCM::class,
+         
+        
 
     ],
 

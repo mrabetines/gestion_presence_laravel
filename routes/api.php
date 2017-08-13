@@ -13,6 +13,24 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});*/
+
+Route::post('v1/student', 'EtudiantController@login');
+Route::group(['prefix' => 'v1','middleware' => 'auth:api'], function()
+{
+  Route::get('/beacons', 'BeaconController@getListBeacons');
+  Route::post('/presence', 'PresenceController@markPresence');
+ 
 });
+
+Route::group(['prefix' => 'v1'] ,function()
+{
+  Route::post('/presencebymonitor', 'PresenceController@changePresence');
+  Route::post('/presencebyqrcode', 'PresenceController@markPresenceqrcode');
+  Route::post('/studentsbyexam', 'ExamenController@getListStudents');
+
+});
+
+ 

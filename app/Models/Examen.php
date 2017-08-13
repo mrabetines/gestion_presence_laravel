@@ -13,6 +13,6 @@ class Examen extends Model
 
     public function etudiants()
     {
-        return $this->belongsToMany('App\Models\Etudiant','Etudiant_Examen','id_Etudiant','id_Examen');
+        return $this->belongsToMany('App\Models\Etudiant','Etudiant_Examen','id_Examen','id_Etudiant')->withPivot('present');
     }
 }

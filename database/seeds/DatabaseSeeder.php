@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'qr_code' => '0000000117',
             'active' => true,
             'carte_Etudiant' =>'1300282', 
-            'password' => 'ines',
+            'password' => bcrypt('ines'),
         ]);
         DB::table('Etudiant')->insert([
             'nom' => 'ayari',
@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             'qr_code' => '0000000118',
             'active' => true,
             'carte_Etudiant' => '1300283', 
-            'password' => 'sameh',
+            'password' => bcrypt('sameh'),
         ]);
         DB::table('Session')->insert([
             'nom' => 'session',
@@ -54,6 +54,10 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('Etudiant_Examen')->insert([
             'id_Etudiant' => 1,
+            'id_Examen' => 1,
+        ]);
+        DB::table('Etudiant_Examen')->insert([
+            'id_Etudiant' => 2,
             'id_Examen' => 1,
         ]);
         DB::table('Beacon')->insert([
