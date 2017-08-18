@@ -20,7 +20,7 @@ class MigrationBeacon extends Migration
             $table->integer('major')->unsigned();
             $table->integer('minor')->unsigned();
             
-            $table->integer('id_Examen')->unsigned();
+            $table->integer('id_Examen')->nullable()->default(null)->unsigned();
             $table->foreign('id_Examen')->references('id_Examen')->on('Examen');
 
         });

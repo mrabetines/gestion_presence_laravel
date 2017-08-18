@@ -18,4 +18,8 @@ class BeaconRepository implements IBeaconRepository
         return Beacon::find($id);
     }
 
+    public function getFreeBeacons(){
+        return Beacon::where('id_Examen',"=",null)->get();
+    }
+
 }

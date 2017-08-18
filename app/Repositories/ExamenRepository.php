@@ -11,6 +11,11 @@ class ExamenRepository implements IExamenRepository
         return $examen->etudiants;
     }
 
+    public function getBeacons($examen)
+    {
+        return $examen ->beacons;
+    }
+
     public function getOne($id)
     {
         return Examen::find($id);
