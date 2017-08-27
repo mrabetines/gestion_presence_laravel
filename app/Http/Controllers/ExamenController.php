@@ -21,55 +21,66 @@ class ExamenController extends Controller
 
     }
 
-    public function getListStudents(Request $request)
-    {   $id=$request->input('id_Examen');
-        $examen=$this->examenrepository->getOne($id);
-        if(!$examen)
-        {
-            return response()->json(['error' => "can't fin exam"],404);
-        }
-        else 
-        {
-        $etudiants=$this->examenrepository->getStudents($examen);
-        return response()->json(['error' => false,
-                                'result' => $etudiants,
-                                'status_code'=> 200]);
-        }
-    }
-
-    public function getListBeacons(Request $request)
-    {   $id_Examen=$request->input('id_Examen');
+    public function getListStudents($id_Examen)
+    {   
         $examen=$this->examenrepository->getOne($id_Examen);
         if(!$examen)
         {
-            return response()->json(['error' => "can't find exam"],404);
+            return response()->json(['error' => "examen inexistant"],401);
         }
         else 
         {
-        $beacons=$this->examenrepository->getBeacons($examen);
-        return response()->json(['error' => false,
-                                'result' => $beacons,
-                                'status_code'=> 200]);
+            $etudiants=$this->examenrepository->getStudents($examen);
+            return response()->json(['error' => false,
+                                    'result' => $etudiants,
+                                    'status_code'=> 200]);
         }
     }
 
+    public function getListBeacons($id_Examen)
+    {    
+        $examen=$this->examenrepository->getOne($id_Examen);
+        if(!$examen)
+        {
+            return response()->json(['error' => "examen inexistant"],401);
+        }
+        else 
+        {
+            $beacons=$this->examenrepository->getBeacons($examen);
+            return response()->json(['error' => false,
+                                    'result' => $beacons,
+                                    'status_code'=> 200]);
+        }
+    }
+
+    /*ajouter liste des beacons à un examen donnée.Retourne une liste des beacons affectés par cette méthode.
+    Si un beacon est déja affecté , il sera ignorer.*/
     public function addListBeacons(Request $request)
     {
         $id_Beacons=$request->input("id_Beacons");
         $id_Examen=$request->input('id_Examen');
         $examen=$this->examenrepository->getOne($id_Examen);
-        $beacons=array();
-        for ($i=0; $i<count($id_Beacons); $i++) {
-          $beacon=$this->beaconrepository->getOne($id_Beacons[$i]);
-        if($beacon != null && $beacon->id_Examen == null)
-         {$beacons[$i]=$beacon;
-}}
-        $examen->beacons()->saveMany($beacons);
-        return response()->json(['error' => false,
-                                'result' => $beacons,
-                                'status_code'=> 200]);
+        if($examen)
+        {
+            $beacons=array();
+            for ($i=0; $i<count($id_Beacons); $i++) 
+            {
+                $beacon=$this->beaconrepository->getOne($id_Beacons[$i]);
+                if($beacon != null && $beacon->id_Examen == null)
+                {
+                        $beacons[$i]=$beacon;
+                }
+            }
+            $examen->beacons()->saveMany($beacons);
+            return response()->json(['error' => false,
+                                    'result' => $beacons,
+                                    'status_code'=> 200]);
         
-   }
-
+        }
+        else
+        {
+            return response()->json(['error' => "examen inexistant"],401);
+        }
+    }
 }
     

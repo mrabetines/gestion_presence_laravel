@@ -26,18 +26,20 @@ Route::group(['prefix' => 'v1','middleware' => 'auth:api'], function()
 });
 
 Route::group(['prefix' => 'v1'] ,function()
-{
+{ Route::get('/exam/{id_Examen}/students','ExamenController@getListStudents');
+  Route::get('/exam/{id_Examen}/beacons', 'ExamenController@getListBeacons');
+  Route::get('/beacon/{id_Beacon}', 'BeaconController@getBeacon');
+  Route::get('/beacons', 'BeaconController@getListBeacons');
+  Route::get('/freebeacons', 'BeaconController@getListFreeBeacons');
+
   Route::post('/presencebymonitor', 'PresenceController@changePresence');
   Route::post('/presencebyqrcode', 'PresenceController@markPresenceqrcode');
-  Route::post('/studentsbyexam', 'ExamenController@getListStudents');
-  Route::post('/getbeaconsbyexam', 'ExamenController@getListBeacons');
   Route::post('/setbeaconsbyexam', 'ExamenController@addListBeacons');
-  Route::get('/beacons', 'BeaconController@getListBeacons');
-  Route::post('/addbeacon', 'BeaconController@addBeacon');
-  Route::get('/freebeacons', 'BeaconController@getListFreeBeacons');
+  Route::post('/addorupdatebeacon', 'BeaconController@addOrUpdateBeacon');
   Route::post('/retrievebeaconfromexam', 'BeaconController@detachBeacon');
-  Route::post('/deletebeacon', 'BeaconController@deleteBeacon');
-  Route::post('/getbeacon', 'BeaconController@getBeacon');
+
+  Route::delete('/beacon/{id_Beacon}' , 'BeaconController@deleteBeacon');
+ 
   
 });
 

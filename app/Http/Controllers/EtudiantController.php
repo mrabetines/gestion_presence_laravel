@@ -12,29 +12,33 @@ class EtudiantController extends Controller
 {   
     private $etudiantrepository;
   
-
-    public function __construct(IEtudiantRepository $etudiantrepository){
-        $this->etudiantrepository = $etudiantrepository;
-       
+    public function __construct(IEtudiantRepository $etudiantrepository)
+    {
+        $this->etudiantrepository = $etudiantrepository;    
     }
 
     protected function guard()
-{
-    return Auth::guard();
-}
+    {
+        return Auth::guard();
+    }
     
     public function login(Request $request)
     {   $credentials = $request->only('email', 'password');
         $fcm_token=$request->input('token');
         try {
-            if (!$token = $this->guard()->attempt($credentials)) {
-            return response()->json(['error' => true,
-                                'result' => 'can\'t find account',
-                                'status_code'=> 404]);}}
+                if (!$token = $this->guard()->attempt($credentials)) 
+                {
+                    return response()->json(['error' => true,
+                                    'result' => 'compte inexistant',
+                                    'status_code'=> 404]);
+                }
+            }
 
-        catch (JWTException $e) {
+        catch (JWTException $e) 
+        {
             // something went wrong whilst attempting to encode the token
-            return response()->json(['error' => 'could not create token'],500);}
+            return response()->json(['error' => 'could not create token'],500);
+        }
 
         $etudiant=$this->guard()->user();
         $etudiant->token=$fcm_token;
@@ -44,6 +48,4 @@ class EtudiantController extends Controller
                                     'status_code'=> 200]);
     }
 
-     
- 
 }
