@@ -12,8 +12,13 @@ class Beacon extends Model
     public $timestamps = false;
 
 
-    public function examen()
+    /*public function examen()
     {
         return $this->belongsTo('App\Models\Examen','id_Examen');
+    }*/
+
+    public function examens()
+    {
+        return $this->belongsToMany('App\Models\Examen','Beacon_Examen','id_Beacon','id_Examen');
     }
 }

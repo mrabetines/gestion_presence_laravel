@@ -30,7 +30,7 @@ Route::group(['prefix' => 'v1'] ,function()
   Route::get('/exam/{id_Examen}/beacons', 'ExamenController@getListBeacons');
   Route::get('/beacon/{id_Beacon}', 'BeaconController@getBeacon');
   Route::get('/beacons', 'BeaconController@getListBeacons');
-  Route::get('/freebeacons', 'BeaconController@getListFreeBeacons');
+  Route::get('/freebeacons/{id_Examen}', 'BeaconController@getListFreeBeacons');
 
   Route::post('/presencebymonitor', 'PresenceController@changePresence');
   Route::post('/presencebyqrcode', 'PresenceController@markPresenceqrcode');

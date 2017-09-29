@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\IBeaconRepository;
+use App\Repositories\IExamenRepository;
 use Illuminate\Http\Request;
 use App\Models\Beacon;
 
 class BeaconController extends Controller
 {   private  $beaconrepository;
+    private $examenrepository;
 
-    public function __construct(IBeaconRepository $beaconrepository)
+    public function __construct(IBeaconRepository $beaconrepository,IExamenRepository $examenrepository)
     {
         $this->beaconrepository = $beaconrepository; 
+        $this->examenrepository = $examenrepository; 
     }
     
     public function getListBeacons()
@@ -54,11 +57,19 @@ class BeaconController extends Controller
        }
     }
 
-    public function getListFreeBeacons()
-    {
-        return response()->json(['error' => false,
-                                'result' => $this->beaconrepository->getFreeBeacons(),
+    public function getListFreeBeacons($id_Examen)
+
+    {   $examen=$this->examenrepository->getOne($id_Examen);
+        if($examen)
+        {
+            return response()->json(['error' => false,
+                                'result' => $this->beaconrepository->getFreeBeacons($examen->date),
                                 'status_code'=> 200]);
+        }
+        else 
+        {
+            return response()->json(['result' =>'examen inexistant'],401);
+        }
     }
 
 

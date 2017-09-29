@@ -52,6 +52,13 @@ class DatabaseSeeder extends Seeder
             'nbre_Places' => 2,
             'id_Session' => 1,   
         ]);
+        DB::table('Examen')->insert([
+            'id_Examen' =>45,
+            'date' => '2017-07-24',
+            'max_Places' => 20,
+            'nbre_Places' => 2,
+            'id_Session' => 1,   
+        ]);
         DB::table('Etudiant_Examen')->insert([
             'id_Etudiant' => 1,
             'id_Examen' => 1,
@@ -64,10 +71,38 @@ class DatabaseSeeder extends Seeder
             'uuid' => 'B9407F30-F5F8-466E-AFF9-25556B57FE6D',
             'major' => 0,
             'minor' => 0,
-            'id_Examen' => 1,
 
         ]);
+        DB::table('Beacon')->insert([
+            'uuid' => 'B9407F30-F5F8-466E-AFF9-25556B57FE6D',
+            'major' => 0,
+            'minor' => 0,
 
+        ]);
+        DB::table('Beacon')->insert([
+            'uuid' => 'B9407F30-F5F8-466E-AFF9-25556B57FE6D',
+            'major' => 0,
+            'minor' => 0,
+
+        ]);
+        DB::table('Beacon')->insert([
+            'uuid' => 'B9407F30-F5F8-466E-AFF9-25556B57FE6D',
+            'major' => 0,
+            'minor' => 0,
+
+        ]);
+        DB::table('Beacon_Examen')->insert([
+            'id_Beacon' => 1,
+            'id_Examen' => 1,
+        ]);
+        DB::table('Beacon_Examen')->insert([
+            'id_Beacon' => 2,
+            'id_Examen' => 45,
+        ]);
+        DB::table('Beacon_Examen')->insert([
+            'id_Beacon' => 3,
+            'id_Examen' => 45,
+        ]);
         
     }
 }

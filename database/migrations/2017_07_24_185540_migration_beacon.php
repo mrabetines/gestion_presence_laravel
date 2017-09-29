@@ -20,8 +20,8 @@ class MigrationBeacon extends Migration
             $table->integer('major')->unsigned();
             $table->integer('minor')->unsigned();
             
-            $table->integer('id_Examen')->nullable()->default(null)->unsigned();
-            $table->foreign('id_Examen')->references('id_Examen')->on('Examen');
+            //$table->integer('id_Examen')->nullable()->default(null)->unsigned();
+            //$table->foreign('id_Examen')->references('id_Examen')->on('Examen');
 
         });
     }
@@ -33,9 +33,9 @@ class MigrationBeacon extends Migration
      */
     public function down()
     {
-        Schema::table('Beacon', function (Blueprint $table) {
+        /*Schema::table('Beacon', function (Blueprint $table) {
             $table->dropForeign('Beacon_id_Examen_foreign');
-        });
+        });*/
         Schema::drop('Beacon');
     }
 }

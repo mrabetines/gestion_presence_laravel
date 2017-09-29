@@ -7,5 +7,5 @@ interface IBeaconRepository
     public function getAll();
     public function save($beacon);
     public function getOne($id);
-    public function getFreeBeacons();
+    public function getFreeBeacons($date);
 }

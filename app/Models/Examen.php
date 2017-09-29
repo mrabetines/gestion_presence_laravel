@@ -18,7 +18,9 @@ class Examen extends Model
 
     public function beacons()
     {
-         return $this->hasMany('App\Models\Beacon','id_Examen');
+         //return $this->hasMany('App\Models\Beacon','id_Examen');
+         return $this->belongsToMany('App\Models\Beacon','Beacon_Examen','id_Examen','id_Beacon');
+         
     }
 
      public function delete()
