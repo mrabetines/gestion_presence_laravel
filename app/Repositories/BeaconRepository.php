@@ -18,8 +18,7 @@ class BeaconRepository implements IBeaconRepository
         return Beacon::find($id);
     }
 
-    public function getFreeBeacons($date){
-        //return Beacon::where('id_Examen',"=",null)->get();
+    public function getFreeBeacons($id_Examen,$date){
         $beacons=Beacon::all();
         $freeBeacons=array();
         foreach ($beacons as $beacon)
@@ -33,10 +32,11 @@ class BeaconRepository implements IBeaconRepository
                 $libre=true;
                 foreach ($beacon->examens as $examen)
                 {
-                    if($examen->date === $date)
+                    if($examen->date === $date && $examen->id_Examen != $id_Examen)
                     {
                          $libre=false;
                     }
+                    
                 }
                 if($libre==true)
                 {
@@ -48,6 +48,13 @@ class BeaconRepository implements IBeaconRepository
         }
 
         return $freeBeacons;
+    }
+
+    public function delete($beacon)
+    {
+        $beacon->examens()->detach();
+        $beacon->delete();
+
     }
 
 }

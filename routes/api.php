@@ -20,9 +20,8 @@ use Illuminate\Http\Request;
 Route::post('v1/student', 'EtudiantController@login');
 Route::group(['prefix' => 'v1','middleware' => 'auth:api'], function()
 {
- 
   Route::post('/presence', 'PresenceController@markPresence');
- 
+  
 });
 
 Route::group(['prefix' => 'v1'] ,function()
@@ -36,10 +35,10 @@ Route::group(['prefix' => 'v1'] ,function()
   Route::post('/presencebyqrcode', 'PresenceController@markPresenceqrcode');
   Route::post('/setbeaconsbyexam', 'ExamenController@addListBeacons');
   Route::post('/addorupdatebeacon', 'BeaconController@addOrUpdateBeacon');
-  Route::post('/retrievebeaconfromexam', 'BeaconController@detachBeacon');
+  //Route::post('/retrievebeaconfromexam', 'BeaconController@detachBeacon');
 
   Route::delete('/beacon/{id_Beacon}' , 'BeaconController@deleteBeacon');
- 
+
   
 });
 

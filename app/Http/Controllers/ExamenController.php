@@ -53,8 +53,7 @@ class ExamenController extends Controller
         }
     }
 
-    /*ajouter liste des beacons à un examen donnée.Retourne une liste des beacons affectés par cette méthode.
-    Si un beacon est déja affecté , il sera ignorer.*/
+    
     public function addListBeacons(Request $request)
     {
         $id_Beacons=$request->input("id_Beacons");
@@ -62,7 +61,7 @@ class ExamenController extends Controller
         $examen=$this->examenrepository->getOne($id_Examen);
         if($examen)
         {
-            $beacons=array();
+            /*$beacons=array();
             for ($i=0; $i<count($id_Beacons); $i++) 
             {
                 $beacon=$this->beaconrepository->getOne($id_Beacons[$i]);
@@ -74,7 +73,15 @@ class ExamenController extends Controller
             $examen->beacons()->saveMany($beacons);
             return response()->json(['error' => false,
                                     'result' => $beacons,
-                                    'status_code'=> 200]);
+                                    'status_code'=> 200]);*/
+            $examen->beacons()->detach();
+            foreach($id_Beacons as $id_Beacon)
+            {
+                $examen->beacons()->attach($id_Beacon);
+            }
+            return response()->json(['error' => false,
+            'result' => 'affectation éffectuée avec succées',
+            'status_code'=> 200]);
         
         }
         else

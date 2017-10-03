@@ -32,33 +32,41 @@ class PresenceController extends Controller
     {
         $id_Etudiant=$request->input('id_Etudiant');
         $id_Beacon=$request->input('id_Beacon');
+        $date=$request->input('date');
         $beacon=$this->beaconrepository->getOne($id_Beacon);
         if($beacon)
-        {   $examen=$beacon->examen;
+        {   //$examen=$beacon->examen;
+            $examen=$this->examenrepository->getExamensByDate($this->examenrepository->getExamensByBeacon($beacon),$date)->first();
             $etudiant=$this->etudiantrepository->getOne($id_Etudiant);
             if(!$etudiant)
             {
                 $message="fausses données";
             }
             else
-            {   
-                $isregistered=$this->examenrepository->isRegistered($examen,$etudiant->id_Etudiant); 
-                if(!$isregistered)
+            {   if($examen)
                 {
-                    $message="Ce compte n'est pas inscrit pour cet examen";
-                }
-                else 
-                {   if($this->examenrepository->isPresent($examen,$etudiant->id_Etudiant))
+                    $isregistered=$this->examenrepository->isRegistered($examen,$etudiant->id_Etudiant); 
+                    if(!$isregistered)
                     {
-                        return response()->json(['error' => false,
-                                'result' => 'déjà present',
-                                    'status_code'=> 200]);
+                        $message="Ce compte n'est pas inscrit pour cet examen";
                     }
                     else 
-                    {
-                        $this->examenrepository->updatePresence($examen,$etudiant->id_Etudiant,['present'=> true]);
-                        $message="Vous êtes marqués present";
+                    {   if($this->examenrepository->isPresent($examen,$etudiant->id_Etudiant))
+                        {
+                            return response()->json(['error' => false,
+                                    'result' => 'déjà present',
+                                        'status_code'=> 200]);
+                        }
+                        else 
+                        {
+                            $this->examenrepository->updatePresence($examen,$etudiant->id_Etudiant,['present'=> true]);
+                            $message="Vous êtes marqués present";
+                        }
                     }
+                }
+                else
+                {
+                    return response()->json(['error' => " examen inexistant"],401);
                 }
             }
             
@@ -71,45 +79,52 @@ class PresenceController extends Controller
 
             $option = $optionBuilder->build();
             $data = $dataBuilder->build();
-            $downstreamResponse = FCM::sendTo($etudiant->token, $option, null, $data);
-
-            $tokens_todelete=$downstreamResponse->tokensToDelete();
-            $tokens_tomodify=$downstreamResponse->tokensToModify();
-            $tokens_toretry=$downstreamResponse->tokensToRetry();
-
-            //s'il faut supprimer le FCM token
-            if (!empty($tokens_todelete))
-            {
-                //delete the token from database
-                $etudiant->token=NULL;
-                $this->etudiantrepository->save($etudiant);
-            }
-            //s'il faut le modifier
-            if(!empty($tokens_tomodify))
-            {
-                $new_token=$tokens_tomodify[$etudiant->token];
-                $etudiant->token=$new_token;
-                //add the token to database
-                $this->etudiantrepository->save($etudiant);
-            } 
-            
-            //s'il faut renvoyer
-            if(!empty($tokens_toretry))
+            if($etudiant->token != NULL)
             {
                 $downstreamResponse = FCM::sendTo($etudiant->token, $option, null, $data);
-            }
 
-            if ($downstreamResponse->numberFailure() !=0)
-            {
-                return response()->json(['error' => true,
-                                'result' => 'erreur dans la push notif',
-                                    'status_code'=> 503]);
+                $tokens_todelete=$downstreamResponse->tokensToDelete();
+                $tokens_tomodify=$downstreamResponse->tokensToModify();
+                $tokens_toretry=$downstreamResponse->tokensToRetry();
+
+                //s'il faut supprimer le FCM token
+                if (!empty($tokens_todelete))
+                {
+                    //delete the token from database
+                    $etudiant->token=NULL;
+                    $this->etudiantrepository->save($etudiant);
+                }
+                //s'il faut le modifier
+                if(!empty($tokens_tomodify))
+                {
+                    $new_token=$tokens_tomodify[$etudiant->token];
+                    $etudiant->token=$new_token;
+                    //add the token to database
+                    $this->etudiantrepository->save($etudiant);
+                } 
+                
+                //s'il faut renvoyer
+                if(!empty($tokens_toretry))
+                {
+                    $downstreamResponse = FCM::sendTo($etudiant->token, $option, null, $data);
+                }
+
+                if ($downstreamResponse->numberFailure() !=0)
+                {
+                    return response()->json(['error' => true,
+                                    'result' => 'erreur dans la push notif',
+                                        'status_code'=> 503]);
+                }
+                else
+                {
+                    return response()->json(['error' => false,
+                                    'result' => 'succès du push notif',
+                                        'status_code'=> 200]);
+                }
             }
             else
             {
-                return response()->json(['error' => false,
-                                'result' => 'succès du push notif',
-                                    'status_code'=> 200]);
+                return response()->json(['error' => "le token de l'étudiant est null"],400);
             }
     }
     else 

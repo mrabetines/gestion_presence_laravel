@@ -44,6 +44,16 @@ class ExamenRepository implements IExamenRepository
         return $examen->etudiants()->find($id_Etudiant)->pivot->present;
         
     }
+
+    public function getExamensByDate($examens,$date)
+    {
+        return $examens->whereDate('date',$date)->get();
+    }
+
+    public function getExamensByBeacon($beacon)
+    {
+        return $beacon->examens()->wherePivot('id_Beacon', $beacon->id_Beacon);
+    }
     
 
 }

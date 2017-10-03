@@ -63,7 +63,7 @@ class BeaconController extends Controller
         if($examen)
         {
             return response()->json(['error' => false,
-                                'result' => $this->beaconrepository->getFreeBeacons($examen->date),
+                                'result' => $this->beaconrepository->getFreeBeacons($examen->id_Examen,$examen->date),
                                 'status_code'=> 200]);
         }
         else 
@@ -73,7 +73,7 @@ class BeaconController extends Controller
     }
 
 
-    public function detachBeacon(Request $request)
+    /*public function detachBeacon(Request $request)
     {
         $id_Beacon=$request->input("id_Beacon");
         $beacon=$this->beaconrepository->getOne($id_Beacon);
@@ -88,7 +88,7 @@ class BeaconController extends Controller
             return response()->json(['result' =>'beacon inexistant'],401);
         }
 
-   }
+   }*/
 
    public function getBeacon($id_Beacon)
     { 
@@ -110,7 +110,7 @@ class BeaconController extends Controller
         $beacon=$this->beaconrepository->getOne($id_Beacon);
         if($beacon)
         {
-            $beacon->delete();
+            $this->beaconrepository->delete($beacon);
             return response()->json(['error' => false,
                                     'result' => 'suppression effectuée avec succées',
                                         'status_code'=> 200]);

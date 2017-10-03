@@ -15,7 +15,7 @@ class MigrationExamen extends Migration
     {
         Schema::create('Examen', function (Blueprint $table) {
             $table->increments('id_Examen');
-            $table->date('date', 100);
+            $table->dateTime('date', 100);
             $table->integer('max_Places');
             $table->integer('nbre_Places');
 
