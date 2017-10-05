@@ -68,25 +68,29 @@ class DatabaseSeeder extends Seeder
             'id_Examen' => 1,
         ]);
         DB::table('Beacon')->insert([
+            'code'=>'test',
             'uuid' => 'B9407F30-F5F8-466E-AFF9-25556B57FE6D',
             'major' => 0,
             'minor' => 0,
 
         ]);
         DB::table('Beacon')->insert([
-            'uuid' => 'B9407F30-F5F8-466E-AFF9-25556B57FE6D',
+            'code'=>'test1',
+            'uuid' => 'B9407F30-F5F8-466E-AFF9-25556B57FE6F',
             'major' => 0,
             'minor' => 0,
 
         ]);
         DB::table('Beacon')->insert([
-            'uuid' => 'B9407F30-F5F8-466E-AFF9-25556B57FE6D',
+            'code'=>'test2',
+            'uuid' => 'B9407F30-F5F8-466E-AFF9-25556B57FE6A',
             'major' => 0,
             'minor' => 0,
 
         ]);
         DB::table('Beacon')->insert([
-            'uuid' => 'B9407F30-F5F8-466E-AFF9-25556B57FE6D',
+            'code'=>'test3',
+            'uuid' => 'B9407F30-F5F8-466E-AFF9-25556B57FE6E',
             'major' => 0,
             'minor' => 0,
 

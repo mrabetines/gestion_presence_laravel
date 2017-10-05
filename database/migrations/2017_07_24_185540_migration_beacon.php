@@ -15,7 +15,7 @@ class MigrationBeacon extends Migration
     {
         Schema::create('Beacon', function (Blueprint $table) {
             $table->increments('id_Beacon');
-
+            $table->string('code', 100)->unique();
             $table->string('uuid', 100);
             $table->integer('major')->unsigned();
             $table->integer('minor')->unsigned();

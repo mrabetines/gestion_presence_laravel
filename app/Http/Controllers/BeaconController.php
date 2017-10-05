@@ -31,6 +31,7 @@ class BeaconController extends Controller
         $uuid=$request->input("uuid");
         $major=$request->input("major");
         $minor=$request->input("minor");
+        $code=$request->input("code");
         $id_Beacon=$request->input("id_Beacon");
 
         if($id_Beacon)
@@ -47,6 +48,7 @@ class BeaconController extends Controller
             $beacon->uuid=$uuid;
             $beacon->major=$major;
             $beacon->minor=$minor;
+            $beacon->code=$code;
             $this->beaconrepository->save($beacon);
             return response()->json(['result'=>'succees'],200);
         }
